@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Professional IT and networking portfolio website." />
+  <title>Zackary | IT Networking Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #0f172a;
+      --panel: #111827;
+      --panel-light: #1f2937;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --line: rgba(148, 163, 184, 0.22);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --green: #22c55e;
+      --orange: #f59e0b;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+      --radius: 22px;
+      --max-width: 1180px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(56, 189, 248, 0.13), transparent 28%),
+        radial-gradient(circle at 90% 20%, rgba(34, 197, 94, 0.08), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 38px));
+      margin: 0 auto;
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(15, 23, 42, 0.88);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, #38bdf8, #2563eb);
+      box-shadow: 0 12px 34px rgba(56, 189, 248, 0.24);
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .nav-resume {
+      padding: 10px 16px;
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      border-radius: 999px;
+      color: var(--accent);
+      background: var(--accent-soft);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.04fr 0.96fr;
+      gap: 44px;
+      align-items: center;
+      padding: 86px 0 64px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.87rem;
+      margin-bottom: 18px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .status-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.12);
+    }
+
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 5.8rem);
+      line-height: 0.98;
+      letter-spacing: -0.07em;
+      margin-bottom: 24px;
+    }
+
+    .hero-summary {
+      max-width: 650px;
+      color: #cbd5e1;
+      font-size: 1.08rem;
+      margin-bottom: 28px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 18px;
+      border-radius: 14px;
+      font-weight: 760;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+    }
+
+    .button-primary {
+      background: #f8fafc;
+      color: #0f172a;
+      box-shadow: 0 18px 48px rgba(248, 250, 252, 0.13);
+    }
+
+    .button-secondary {
+      background: rgba(255, 255, 255, 0.04);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 640px;
+    }
+
+    .meta-card {
+      padding: 16px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.035);
+      border-radius: 18px;
+    }
+
+    .meta-card strong {
+      display: block;
+      font-size: 1.25rem;
+      letter-spacing: -0.04em;
+    }
+
+    .meta-card span {
+      color: var(--muted);
+      font-size: 0.87rem;
+    }
+
+    .profile-card {
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.025)),
+        var(--panel);
+      border-radius: 32px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-card::before {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      background: rgba(56, 189, 248, 0.13);
+      top: -110px;
+      right: -100px;
+      filter: blur(4px);
+    }
+
+    .profile-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 26px;
+    }
+
+    .avatar {
+      width: 82px;
+      height: 82px;
+      border-radius: 24px;
+      background:
+        linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(37, 99, 235, 0.34)),
+        #1e293b;
+      display: grid;
+      place-items: center;
+      font-size: 2rem;
+      font-weight: 900;
+      border: 1px solid rgba(255, 255, 255, 0.13);
+    }
+
+    .availability {
+      font-size: 0.84rem;
+      color: #bbf7d0;
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.24);
+      padding: 8px 11px;
+      border-radius: 999px;
+    }
+
+    .profile-card h2 {
+      font-size: 1.75rem;
+      letter-spacing: -0.04em;
+      position: relative;
+      z-index: 1;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      margin: 10px 0 22px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .command-window {
+      background: #020617;
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      border-radius: 22px;
+      overflow: hidden;
+      position: relative;
+      z-index: 1;
+    }
+
+    .window-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 13px 15px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 7px;
+    }
+
+    .window-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #334155;
+    }
+
+    .terminal-body {
+      padding: 18px;
+      font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+      font-size: 0.9rem;
+      color: #cbd5e1;
+    }
+
+    .terminal-body p {
+      margin: 0 0 10px;
+      color: #cbd5e1;
+    }
+
+    .prompt {
+      color: var(--accent);
+    }
+
+    .success {
+      color: #86efac;
+    }
+
+    .section {
+      padding: 74px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      letter-spacing: -0.06em;
+      line-height: 1;
+    }
+
+    .section-heading p {
+      max-width: 470px;
+      color: var(--muted);
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(56, 189, 248, 0.32);
+      background: rgba(255, 255, 255, 0.06);
+    }
+
+    .card-label {
+      display: inline-flex;
+      margin-bottom: 15px;
+      color: var(--accent);
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.78rem;
+      font-weight: 760;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 9px;
+    }
+
+    .card p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      color: #dbeafe;
+      background: rgba(148, 163, 184, 0.1);
+      border: 1px solid rgba(148, 163, 184, 0.18);
+      padding: 6px 9px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+    }
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+    }
+
+    .about-text {
+      font-size: 1.02rem;
+      color: #cbd5e1;
+    }
+
+    .about-text p + p {
+      margin-top: 16px;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(148, 163, 184, 0.14);
+    }
+
+    .info-row:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .info-row span:first-child {
+      color: var(--muted);
+    }
+
+    .info-row span:last-child {
+      text-align: right;
+      color: var(--text);
+      font-weight: 650;
+    }
+
+    .project-card {
+      min-height: 315px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-topline {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .project-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: rgba(56, 189, 248, 0.11);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--accent);
+      font-weight: 900;
+    }
+
+    .project-link {
+      color: var(--accent);
+      font-size: 0.9rem;
+      font-weight: 750;
+    }
+
+    .timeline {
+      position: relative;
+      display: grid;
+      gap: 16px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 20px;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .timeline-date {
+      color: var(--accent);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .timeline-content h3 {
+      margin-bottom: 7px;
+      letter-spacing: -0.03em;
+    }
+
+    .timeline-content p {
+      color: var(--muted);
+    }
+
+    .skills-panel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .skill-group ul {
+      list-style: none;
+      display: grid;
+      gap: 11px;
+      color: #cbd5e1;
+    }
+
+    .skill-group li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    .skill-group li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+      flex: 0 0 auto;
+      box-shadow: 0 0 0 5px rgba(56, 189, 248, 0.08);
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1fr 0.85fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .contact-main {
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(56, 189, 248, 0.1), rgba(255, 255, 255, 0.035)),
+        rgba(255, 255, 255, 0.04);
+      border-radius: 30px;
+      padding: 34px;
+    }
+
+    .contact-main h2 {
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      line-height: 1;
+      letter-spacing: -0.07em;
+      margin-bottom: 16px;
+    }
+
+    .contact-main p {
+      color: #cbd5e1;
+      max-width: 620px;
+      margin-bottom: 24px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.04);
+      color: #dbeafe;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .contact-link:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, 0.07);
+    }
+
+    footer {
+      padding: 36px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+      margin-top: 50px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+}
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .stat {
+    .reveal.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    @media (max-width: 950px) {
+      .hero,
+      .about-layout,
+      .contact-box,
+      .skills-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .grid-3,
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        align-items: start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        display: none;
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(100% - 26px, var(--max-width));
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .hero-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .info-row {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .info-row span:last-child {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="top-bar">
+    <nav class="container">
+      <a href="#top" class="brand" aria-label="Go to homepage">
+        <span class="brand-mark">Z</span>
+        <span>Zackary Portfolio</span>
+      </a>
+
+      <div class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+        <a href="Resume.pdf" class="nav-resume">Resume</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <div class="reveal visible">
+        <div class="eyebrow">
+          <span class="status-dot"></span>
+          IT Networking Student · Technician · CCNA Track
+        </div>
+
+        <h1>Building reliable networks and practical IT solutions.</h1>
+
+        <p class="hero-summary">
+          I am focused on networking, troubleshooting, infrastructure support, and hands-on lab work.
+          This portfolio highlights the projects, technical skills, and real-world practice I am building
+          while working toward a career in network administration.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="button button-primary">View Projects</a>
+          <a href="#contact" class="button button-secondary">Contact Me</a>
+        </div>
+
+        <div class="hero-meta" aria-label="Quick stats">
+          <div class="meta-card">
+            <strong>CCNA</strong>
+            <span>Currently studying</span>
+          </div>
+          <div class="meta-card">
+            <strong>IT</strong>
+            <span>Hands-on support</span>
+          </div>
+          <div class="meta-card">
+            <strong>Labs</strong>
+            <span>Cisco focused</span>
+          </div>
+        </div>
+      </div>
+
+      <aside class="profile-card reveal visible" aria-label="Profile summary card">
+        <div class="profile-top">
+          <div class="avatar">Z</div>
+          <div class="availability">Open to IT roles</div>
+        </div>
+
+        <h2>Zackary Lastname</h2>
+        <p>
+          IT Networking student and Technician with experience in troubleshooting,
+          device configuration, and customer-focused technical support.
+        </p>
+
+        <div class="command-window">
+          <div class="window-header">
+            <div class="window-dots">
+              <span></span><span></span><span></span>
+            </div>
+            <span>network-check</span>
+          </div>
+          <div class="terminal-body">
+            <p><span class="prompt">zackary@portfolio:~$</span> show skills</p>
+            <p>Switching · Routing · VLANs · DHCP · IPv6</p>
+            <p>Windows Support · Troubleshooting · Documentation</p>
+            <p class="success">status: ready to grow</p>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="about" class="section container reveal">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">About</div>
+          <h2>Practical, calm, and hands-on.</h2>
+        </div>
+        <p>
+          This section should read like a professional introduction, not a generic AI bio.
+        </p>
+      </div>
+
+      <div class="about-layout">
+        <article class="card about-text">
+          <p>
+            I am currently developing my skills in IT networking through coursework,
+            Cisco-focused labs, and real technical support experience. I enjoy breaking
+            down problems, finding the actual cause, and documenting fixes clearly.
+          </p>
+          <p>
+            My goal is to grow into a Network Administrator role where I can support,
+            configure, and improve reliable infrastructure. I am especially interested in
+            routing, switching, network security fundamentals, and structured troubleshooting.
+          </p>
+        </article>
+
+        <aside class="card">
+          <div class="info-list">
+            <div class="info-row">
+              <span>Current focus</span>
+              <span>CCNA, Cisco labs, networking fundamentals</span>
+            </div>
+            <div class="info-row">
+              <span>Experience</span>
+              <span>IT support, troubleshooting, documentation</span>
+            </div>
+            <div class="info-row">
+              <span>Career target</span>
+              <span>Network Administrator</span>
+            </div>
+            <div class="info-row">
+              <span>Location</span>
+              <span>Houston, Texas area</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="skills" class="section container reveal">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Skills</div>
+          <h2>Technical areas I am building.</h2>
+        </div>
+        <p>
+          Replace or add skills based on what you actually know. Keep this honest and specific.
+        </p>
+      </div>
+
+      <div class="skills-panel">
+        <article class="card skill-group">
+          <span class="card-label">Networking</span>
+          <h3>Routing, switching, and network services</h3>
+          <p>Focused on the core skills used in entry-level network administration.</p>
+          <ul>
+            <li>VLANs, trunking, inter-VLAN routing, and EtherChannel fundamentals</li>
+            <li>IPv4 and IPv6 addressing, subnetting, SLAAC, and DHCP concepts</li>
+            <li>Static routing, dynamic routing basics, and default gateway behavior</li>
+            <li>STP, port security, DHCP snooping, and basic switch hardening</li>
+          </ul>
+        </article>
+
+        <article class="card skill-group">
+          <span class="card-label">IT Support</span>
+          <h3>Troubleshooting and end-user support</h3>
+          <p>Real support work matters because it proves you can handle messy problems.</p>
+          <ul>
+            <li>Windows desktop troubleshooting and software issue investigation</li>
+            <li>Printer, projector, audio, account, and application support</li>
+            <li>Clear communication with users during technical issues</li>
+            <li>Documentation of symptoms, steps taken, and final resolution</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="projects" class="section container reveal">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Projects</div>
+          <h2>Portfolio projects worth showing.</h2>
+        </div>
+        <p>
+          These are written to sound realistic. Swap in your exact labs, screenshots, or GitHub links.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card project-card">
+          <div>
+            <div class="project-topline">
+              <div class="project-icon">01</div>
+              <a href="#" class="project-link">Add link</a>
+            </div>
+            <span class="card-label">Cisco Lab</span>
+            <h3>Small Business Network Design</h3>
+            <p>
+              Built a multi-switch and router topology with VLAN segmentation,
+              trunk links, inter-VLAN routing, basic security settings, and documented IP addressing.
+            </p>
+          </div>
+          <div class="tag-list">
+            <span class="tag">VLANs</span>
+            <span class="tag">Trunking</span>
+            <span class="tag">Routing</span>
+            <span class="tag">Cisco IOS</span>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div>
+            <div class="project-topline">
+              <div class="project-icon">02</div>
+              <a href="#" class="project-link">Add link</a>
+            </div>
+            <span class="card-label">Security</span>
+            <h3>Switch Security Hardening Lab</h3>
+            <p>
+              Practiced port security, DHCP snooping, unused VLAN handling,
+              and basic Layer 2 defense concepts against common LAN attacks.
+            </p>
+          </div>
+          <div class="tag-list">
+            <span class="tag">Port Security</span>
+            <span class="tag">DHCP Snooping</span>
+            <span class="tag">DAI</span>
+            <span class="tag">Layer 2</span>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div>
+            <div class="project-topline">
+              <div class="project-icon">03</div>
+              <a href="#" class="project-link">Add link</a>
+            </div>
+            <span class="card-label">Support</span>
+            <h3>IT Troubleshooting Case Notes</h3>
+            <p>
+              Created structured notes for recurring support issues including symptoms,
+              root cause, resolution steps, and prevention notes for future tickets.
+            </p>
+          </div>
+          <div class="tag-list">
+            <span class="tag">Troubleshooting</span>
+            <span class="tag">Documentation</span>
+            <span class="tag">Windows</span>
+            <span class="tag">Support</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="section container reveal">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Experience</div>
+          <h2>Work and education path.</h2>
+        </div>
+        <p>
+          Keep this section close to your actual resume. Employers look for dates, duties, and results.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="timeline-date">Current</div>
+          <div class="timeline-content">
+            <h3>Technician 3 · Lone Star College</h3>
+            <p>
+              Provide technical support, troubleshoot user issues, assist with classroom or office technology,
+              and document work performed. Replace this with your exact bullet points from your resume.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date">In progress</div>
+          <div class="timeline-content">
+            <h3>IT Networking Specialization · Cisco Program</h3>
+            <p>
+              Studying networking fundamentals, Cisco IOS configuration, routing, switching,
+              security concepts, and hands-on labs aligned with CCNA topics.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item">
+          <div class="timeline-date">Goal</div>
+          <div class="timeline-content">
+            <h3>Network Administrator Track</h3>
+            <p>
+              Building toward a role focused on supporting network infrastructure, configuring devices,
+              maintaining uptime, and improving documentation and troubleshooting processes.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section container reveal">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow">Certifications</div>
+          <h2>Certs and learning milestones.</h2>
+        </div>
+        <p>
+          List completed certifications first. Put “in progress” only when you are actively studying.
+        </p>
+      </div>
+
+      <div class="grid-3">
+        <article class="card">
+          <span class="card-label">In Progress</span>
+          <h3>Cisco CCNA</h3>
+          <p>Studying routing, switching, IP services, security fundamentals, automation basics, and troubleshooting.</p>
+          <div class="tag-list">
+            <span class="tag">Cisco</span>
+            <span class="tag">Networking</span>
+            <span class="tag">Labs</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-label">Coursework</span>
+          <h3>IT Networking</h3>
+          <p>Working through networking classes with hands-on practice in Cisco Packet Tracer and lab equipment.</p>
+          <div class="tag-list">
+            <span class="tag">Subnetting</span>
+            <span class="tag">IPv6</span>
+            <span class="tag">Switching</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <span class="card-label">Next</span>
+          <h3>Home Lab Documentation</h3>
+          <p>Building a stronger portfolio by turning lab practice into clear writeups, diagrams, and configuration notes.</p>
+          <div class="tag-list">
+            <span class="tag">Diagrams</span>
+            <span class="tag">Configs</span>
+            <span class="tag">Writeups</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section container reveal">
+      <div class="contact-box">
+        <div class="contact-main">
+          <div class="eyebrow">Contact</div>
+          <h2>Let’s connect.</h2>
+          <p>
+            I am open to IT support, networking, and entry-level infrastructure opportunities.
+            Use this section to link your email, LinkedIn, GitHub, resume, and lab documentation.
+          </p>
+          <div class="hero-actions">
+            <a href="zack7040hall@gmail.com" class="button button-primary">Email Me</a>
+	    <a href="mailto:zack7040hall@gmail.com" >
+            <a href="Resume.pdf" class="button button-secondary">Download Résumé</a>
+          </div>
+        </div>
+
+        <aside class="contact-links">
+          <a class="contact-link" href="mailto:zack7040hall@gmail.com">
+            <span>Email</span>
+            <strong>zack7040hall@gmail.com</strong>
+          </a>
+          <a class="contact-link" href="#">
+            <span>LinkedIn</span>
+            <strong>Add profile link</strong>
+          </a>
+          <a class="contact-link" href="#">
+            <span>GitHub</span>
+            <strong>Add GitHub link</strong>
+          </a>
+          <a class="contact-link" href="#projects">
+            <span>Projects</span>
+            <strong>View labs</strong>
+          </a>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>© 2026 Zackary Lastname. All rights reserved.</span>
+      <span>Built with HTML, CSS, and JavaScript.</span>
+    </div>
+  </footer>
+
+  <script>
+    const revealElements = document.querySelectorAll('.reveal');
+
+    const revealOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.14
+    });
+
+    revealElements.forEach((element) => revealOnScroll.observe(element));
+  </script>
+</body>
+</html>
